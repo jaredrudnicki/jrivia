@@ -1,4 +1,4 @@
-const URL = 'https://jrivia-node.herokuapp.com/rest/trivia';
+const URL = 'https://jrivia-node.onrender.com/rest/trivia';
 
 export const findAllTrivia = () =>
   fetch(URL)

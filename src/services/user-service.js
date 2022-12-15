@@ -1,4 +1,4 @@
-const URL = 'https://jrivia-node.herokuapp.com/rest/users';
+const URL = 'https://jrivia-node.onrender.com/rest/users';
 
 export const findAllUsers = () =>
   fetch(URL)
