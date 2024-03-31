@@ -6,14 +6,18 @@ import NavBar from "./NavBar";
 import './index.css'
 
 
-function Home(props) {
+const Home = (props) => {
+    const [skip, setSkip] = useState(0);
+    const limit = 10;
     const user = localStorage.getItem("user");
     const [trivia, setTrivia] = useState([]);
-
-    useEffect(() => {
-        service.findAllTrivia()
-        .then(trivia => setTrivia(trivia))
-    });
+    useEffect(async() => {
+        await service.findAllTrivia().then(trivia => {
+            setTrivia(trivia);
+            setSkip(skip+10);
+        });
+    }, []);
+    
 
     const renderCreate = () => {
         if(user && JSON.parse(user).user_type === "moderator") {

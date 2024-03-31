@@ -1,7 +1,11 @@
 const URL = 'https://jrivia-node.onrender.com/rest/trivia';
 
-export const findAllTrivia = () =>
-  fetch(URL)
+export const findXTrivia = async (limit, skip) => 
+  await fetch(`${URL}?limit=${limit}&skip=${skip}`)
+  .then(response => response.json());
+
+export const findAllTrivia = async() =>
+  await fetch(URL)
     .then(response => response.json());
 
 export const deleteTrivia = (id) =>
@@ -47,6 +51,7 @@ export const updateTriviaTally = (trivia) =>
   
   
 export default {
+    findXTrivia, 
     findAllTrivia, 
     deleteTrivia, 
     createTrivia, 
