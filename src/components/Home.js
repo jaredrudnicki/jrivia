@@ -8,11 +8,11 @@ import './index.css'
 
 const Home = (props) => {
     const [skip, setSkip] = useState(0);
-    const limit = 10;
+    const limit = 20;
     const user = localStorage.getItem("user");
     const [trivia, setTrivia] = useState([]);
     useEffect(async() => {
-        await service.findAllTrivia().then(trivia => {
+        await service.findXTrivia(limit, skip).then(trivia => {
             setTrivia(trivia);
             setSkip(skip+10);
         });
